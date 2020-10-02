@@ -4,14 +4,14 @@ import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity }
 const RepositoryItem = ({item}) => {
     return (
         <TouchableOpacity >
-            <Text >{item.fullName}</Text>
-            <Text>{item.description}</Text>
-            <Text>{item.language}</Text>
+            <Text >Fullname:{item.fullName}</Text>
+            <Text>Description:{item.description}</Text>
+            <Text>Language:{item.language}</Text>
             <Text>{item.forksCount}</Text>
             <Text>{item.stargazersCount}</Text>
             <Text>{item.ratingAveraget}</Text>
-            <Text>{item.reviewCount}</Text>
-            <Text>{item.ownerAvatarUrl}</Text>
+            <Text>TeviewCount:{item.reviewCount}</Text>
+            <Text>Url:{item.ownerAvatarUrl}</Text>
         </TouchableOpacity>
     );
 }
