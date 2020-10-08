@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#0366d6',
         alignSelf: 'center',
         flexGrow: 0,
-        display:'flex'
+        display: 'flex'
 
     }
 
@@ -59,7 +59,7 @@ const CardHeader = ({ item }) => {
     return (
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
-                <Image style={styles.avatar} source={{ uri: 'https://reactjs.org/logo-og.png' }} />
+                <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
             </View>
             <View style={styles.infoContainer}>
                 <Text fontWeight="bold">{item.fullName}</Text>
@@ -71,46 +71,36 @@ const CardHeader = ({ item }) => {
 const CardBody = ({ item }) => {
     return (
         <View style={styles.Container}>
-        <View style={styles.tagContainer}>
-         <Text fontWeight="bold" borderWidth="border" color="tag">{item.language}</Text>
-        </View>
+            <View style={styles.tagContainer}>
+                <Text fontWeight="bold" borderWidth="border" color="tag">{item.language}</Text>
+            </View>
         </View>
     )
 }
 const CardFooter = ({ item }) => {
+    const forksCount = (item.forksCount >= 1000) ? (item.forksCount / 1000).toFixed(2) : item.forksCount;
+    const starsCount = (item.stargazerCount >= 1000) ? (item.starsCount / 1000).toFixed(2) : item.starsCount;
+    return (
+        <View style={styles.footercontainer}>
+            <TouchableOpacity style={styles.actionTouchable}>
+                <Text fontWeight="24" fontWeight="bold">{starsCount}k</Text>
+                <Text> stars</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionTouchable}>
+                <Text fontWeight="24" fontWeight="bold"> {forksCount}k</Text>
+                <Text>Forks</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionTouchable}>
+                <Text fontWeight="24" fontWeight="bold">{item.ratingAverage}</Text>
+                <Text>Rate</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionTouchable}>
+                <Text fontWeight="24" fontWeight="bold">{item.reviewCount}</Text>
+                <Text>Count</Text>
+            </TouchableOpacity>
+        </View>
 
-    if (item.forksCount >= 1000 && item.stargazersCount >= 1000) {
-        return (
-            <View style={styles.footercontainer}>
-                <TouchableOpacity style={styles.actionTouchable}>
-                    <Text fontWeight="24" fontWeight="bold">{(item.stargazersCount / 1000).toFixed(2)}k</Text>
-                    <Text> stars</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionTouchable}>
-                    <Text fontWeight="24" fontWeight="bold"> {(item.forksCount / 1000).toFixed(2)}k</Text>
-                    <Text>Forks</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionTouchable}>
-                    <Text fontWeight="24" fontWeight="bold">{item.ratingAverage}</Text>
-                    <Text>Rate</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionTouchable}>
-                    <Text fontWeight="24" fontWeight="bold">{item.reviewCount}</Text>
-                    <Text>Count</Text>
-                </TouchableOpacity>
-            </View>
-
-        )
-    } else {
-        return (
-            <View style={styles.actionTouchable}>
-                <Text> {item.forksCount}k</Text>
-                <Text>{item.stargazersCount}k</Text>
-                <Text>{item.ratingAverage}</Text>
-                <Text>{item.reviewCount}</Text>
-            </View>
-        )
-    }
+    )
 }
 const RepositoryItem = ({ item }) => {
     return (
