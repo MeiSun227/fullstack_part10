@@ -1,19 +1,15 @@
 import React from 'react';
-import { View, Text,StyleSheet,TouchableWithoutFeedback } from 'react-native';
+import { View, StyleSheet,TouchableWithoutFeedback } from 'react-native';
 import Constants from 'expo-constants';
+import Text from './Text'
 
 const styles = StyleSheet.create({
     container: {
         paddingTop: Constants.statusBarHeight,
         backgroundColor:'#24292e',
         padding:15
-        // ...
-    },
-    text:{
-        color:'white',
-        fontSize:20
     }
-
+    
 });
 
 const Appbar = () => {
@@ -21,7 +17,7 @@ const Appbar = () => {
         <View style={styles.container}>
             <TouchableWithoutFeedback>
                 <View style={styles.container}>
-                    <Text style={styles.text}>Repositories</Text>
+                    <Text fontWeight="bold" fontSize="subheading" color="textSecondary">Repositories</Text>
                     </View>
             </TouchableWithoutFeedback>
         </View>
