@@ -79,7 +79,7 @@ const CardBody = ({ item }) => {
 }
 const CardFooter = ({ item }) => {
     const forksCount = (item.forksCount >= 1000) ? (item.forksCount / 1000).toFixed(2) : item.forksCount;
-    const starsCount = (item.stargazerCount >= 1000) ? (item.starsCount / 1000).toFixed(2) : item.starsCount;
+    const starsCount = (item.stargazersCount >= 1000) ? (item.stargazersCount / 1000).toFixed(2) : item.starsCount;
     return (
         <View style={styles.footercontainer}>
             <TouchableOpacity style={styles.actionTouchable}>
