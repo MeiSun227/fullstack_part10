@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: Constants.statusBarHeight,
         backgroundColor: '#24292e',
-        marginTop: 20,
         flexDirection:'row',
         display:'flex',
     },
