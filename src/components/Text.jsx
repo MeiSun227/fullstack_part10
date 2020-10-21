@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 });
 
 
-const Text = ({ color, fontSize, fontWeight,borderWidth, style, ...props }) => {
+const Text = ({ color, fontSize, fontWeight,borderWidth, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,

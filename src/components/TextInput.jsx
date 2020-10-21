@@ -12,13 +12,19 @@ const styles = StyleSheet.create({
     flex:0,
     justifyContent:'space-evenly'
   },
-
+  error:{
+    borderColor:'red'
+  }
 });
 
-const TextInput = ({ style, error, ...props }) => {
-  const textInputStyle = [styles.text];
+const TextInput = (props) => {
+ 
+  const textInputStyle = [styles.text,
+    props.error ? styles.error : styles.text
+  ];
+  console.log(textInputStyle)
 
-  return <NativeTextInput style={textInputStyle} {...props}/>;
+  return <NativeTextInput style={textInputStyle}{...props}/>;
 };
 
 export default TextInput;
