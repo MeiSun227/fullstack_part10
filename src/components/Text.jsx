@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text as NativeText, StyleSheet } from 'react-native';
+import { Text as NativeText, StyleSheet, Platform } from 'react-native';
 import theme from '../theme';
 
 const styles = StyleSheet.create({
   text: {
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
-    fontFamily: theme.fonts.main,
+    // fontFamily: theme.fonts.main,
+    fontFamily: Platform.OS==='android'?'Roboto':'Arial',
     fontWeight: theme.fontWeights.normal,
     borderWidth: theme.borderWidth.normal,
 
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
 
 
 const Text = ({ color, fontSize, fontWeight,borderWidth, ...props }) => {
+  console.log(Platform.OS)
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
@@ -46,5 +48,4 @@ const Text = ({ color, fontSize, fontWeight,borderWidth, ...props }) => {
 
   return <NativeText style={textStyle}{...props} />;
 };
-
 export default Text;
